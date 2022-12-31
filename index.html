@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head lang="ja">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>Video Communication System - Direct</title>
+        <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.5.js"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div id="videos-container" class="big-container">
+            <div id="my-video-container" class="personal-video-container small-container">
+                <video id="my-video" autoplay muted="true"></video>
+                <h1 id="displayed-my-name" class="name">（名前を入力してください）</h1>
+            </div>
+        </div>
+        <div id="controller-container" class="big-container">
+            <div id="room-information-container" class="small-container">
+                <p>Your ID: <span id="my-id">...</span></p>
+                <input type="text" placeholder="Enter your name..." id="my-name">
+                <input type="text" placeholder="Enter room ID..." id="room-id">
+                <button id="join-button" required>Join</button>
+                <button id="leave-button" required>Leave</button>
+                <pre class="messages" id="messages"></pre>
+            </div>
+            <div id="emotion-input-container" class="small-container">
+                <h1 id="my-emotion">（←→キーで気持ちを変更できます）</h1>
+                <div id="emotion-bar-container">
+                    <h1>離れたい</h1>
+                    <progress id="my-emotion-bar" max="4" value="2"></progress>
+                    <h1>近づきたい</h1>
+                </div>
+            </div>
+        </div>
+        <div id="device-controllers-container" class="big-container">
+            <div class="small-container device-controller-container">
+                <label>Audio : </label><select id="audioSource"></select>
+                <button id="audio-enabled-button">OFF</button>
+            </div>
+            <div class="small-container device-controller-container">
+                <label>Video: </label><select id="videoSource"></select>
+                <button id="video-enabled-button">OFF</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="./key.js"></script>
+        <script type="module" src="./script.js"></script>
+    </body>
+</html>
