@@ -62,7 +62,7 @@ function getDeviceList(deviceInfos){
         };
         const newStream = await navigator.mediaDevices.getUserMedia(constraints);
         myVideo.srcObject = newStream;
-        if (room !== undefined) {
+        if(room !== undefined){
             room.replaceStream(newStream);
         }
         localStream = newStream;
@@ -147,7 +147,7 @@ function getDeviceList(deviceInfos){
         room.once('close', () => {
             const personalVideoContainers = videosContainer.children;
             Array.from(personalVideoContainers).forEach(personalVideoContainer => {
-                if (personalVideoContainer.id != myId.textContent){
+                if(personalVideoContainer.id != myId.textContent){
                     personalVideoContainer.parentNode.removeChild(personalVideoContainer);
                 }
             });
