@@ -10,9 +10,9 @@ const convertInfoToOption = (deviceInfo) => {
 
 // DeviceInfoを取得する
 function getDeviceList(deviceInfos) {
-    const audioDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'audioinput')
-    const videoDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'videoinput')
-    return { audioDeviceInfos, videoDeviceInfos }
+    const audioDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'audioinput');
+    const videoDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'videoinput');
+    return { audioDeviceInfos, videoDeviceInfos };
 }
 
 (async function main() {
@@ -87,7 +87,7 @@ function getDeviceList(deviceInfos) {
     // Peerを作成する
     const peer = new Peer({
         key: SKYWAY_KEY,
-        debug: 0,
+        debug: 0
     });
     peer.on('open', (id) => {
         myId.textContent = id;
@@ -98,7 +98,7 @@ function getDeviceList(deviceInfos) {
     joinButton.addEventListener('click', () => {
         room = peer.joinRoom(roomId.value, {
             mode: 'mesh',
-            stream: localStream,
+            stream: localStream
         });
 
         // 入室する時
@@ -162,6 +162,7 @@ function getDeviceList(deviceInfos) {
 
     peer.on('error', console.error);
 
+    // 相手の要素を作る
     function createPersonalVideoContainer(stream){
         const remoteVideo = document.createElement('video');
         remoteVideo.srcObject = stream;
@@ -253,7 +254,7 @@ function getDeviceList(deviceInfos) {
                 // console.log(response);
             })
             .catch((error) => {
-                // console.log(error)
+                // console.log(error);
             });
     }
 
