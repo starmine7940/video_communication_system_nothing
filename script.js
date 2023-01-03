@@ -9,13 +9,13 @@ const convertInfoToOption = (deviceInfo) => {
 }
 
 // DeviceInfoを取得する
-function getDeviceList(deviceInfos) {
+function getDeviceList(deviceInfos){
     const audioDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'audioinput');
     const videoDeviceInfos = deviceInfos.filter((deviceInfo) => deviceInfo.kind === 'videoinput');
     return { audioDeviceInfos, videoDeviceInfos };
 }
 
-(async function main() {
+(async function main(){
     const myVideo = document.getElementById('my-video');
     const myId = document.getElementById('my-id');
     const videosContainer = document.getElementById('videos-container');
@@ -179,7 +179,6 @@ function getDeviceList(deviceInfos) {
             remoteName.textContent = memberList[stream.peerId];
         }else{
             remoteName.textContent = '（名前を入力してください）';   //仮の名前
-            
         }
         remoteName.classList.add('name');
         // セットする
@@ -213,7 +212,7 @@ function getDeviceList(deviceInfos) {
     }
 
     // 左右キーが押されたら気持ちを変える
-    document.addEventListener('keydown', function (e) {
+    document.addEventListener('keydown', function(e){
         let changed_flag = false;
         if(e.code == 'ArrowLeft' && myEmotionBar.value > 0){
             myEmotionBar.value -= 1;
